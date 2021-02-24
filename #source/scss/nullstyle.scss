@@ -1,0 +1,67 @@
+$max-width: 1100;
+$minwidth:320px;
+$mw:1100;
+$md1:$mw+12;
+$md2:992.98;
+$md3:767.98;
+$md4:479.98;
+
+/*Обнуление!*/
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after{ /*меняет подсчет ширины блока так, чтоб было удобно верстать*/
+  /*по умолчанию свойства width и height не  включают в себя отступы, но со значением border-box - включают (но не внешних отступов margin)*/
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*убирает обводку элементов в некоторых браузерах*/
+:focus, :active{outline: none;}
+
+a:focus, a:active{outline: none;}
+
+nav, footer, header, aside{display: block;} /*делаем перечисленные теги блочными*/
+
+ /*параметры, которые уравнивают поведение шрифтов и элементов для разных браузеров,
+ а также запрещают самовольное увеличение шрифта(на айфонах, например)*/
+html, body{
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;padding: 0;min-width: $minwidth;position: relative;
+}
+body{font-size: 100%;line-height: 1;font-size: 14px;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+  &.lock{overflow: hidden;
+    @media (max-width:$md3+px){
+      width: 100%;
+      position: fixed;
+      overflow: hidden;
+    }
+  }
+}
+
+/*просим о наследовании шрифта, т.к. они не наследуют по умолчанию*/
+input, button, textarea{font-family: inherit;}
+
+input::-ms-clear{display: none;} /*убирает крестик, который появляется в поле ввода в эксплоере*/
+
+button{cursor: pointer;}
+
+button::-moz-focus-inner{padding:0; border:0;} /*убирает лишние отступы в мозиле*/
+
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit; font-weight: 400;}
